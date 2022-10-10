@@ -15,6 +15,7 @@ const generateListItemNode = (data) => {
   const titleNode = clone.querySelector("p.page-micro");
   const avatarNode = clone.querySelector(".profile-list-item-avatar");
   const topFriendNode = clone.querySelector(".top-friend-flag");
+  const noAvatar = clone.querySelector(".profile-avatar-initials");
   
   // visual indicator for top friend
   if(topFriend) {
@@ -39,6 +40,16 @@ const generateListItemNode = (data) => {
     avatarImg.src = avatarSrc;
     avatarImg.setAttribute("aria-label", `${name}`);
     avatarNode.appendChild(avatarImg);
+  }
+  else {
+    let initials = name[0]; // get first initial
+    for(let index = 1; index < name.length; index++) {
+      // once we locate the space(s) in the name, the next character in the name is the next initial in a user's name
+      if(name[index] == " ") {
+        initials = initials + name[index+1];
+      }
+    }
+    noAvatar.innerHTML = `${initials}`;
   }
 
   return clone;
