@@ -64,6 +64,11 @@
   background-color: var(--grayscale_2);
 }
 
+/* STYLE LINKS */
+.profile-group-results-card:hover {
+  filter: drop-shadow(0px 0px 10px grey);
+}
+
 /* SKELETON LOADING  */
 
 #profile-groups .skeleton-card {
