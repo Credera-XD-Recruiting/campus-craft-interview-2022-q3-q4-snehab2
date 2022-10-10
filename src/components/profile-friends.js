@@ -14,11 +14,25 @@ const generateListItemNode = (data) => {
   const nameNode = clone.querySelector("p.page-paragraph");
   const titleNode = clone.querySelector("p.page-micro");
   const avatarNode = clone.querySelector(".profile-list-item-avatar");
+  const topFriendNode = clone.querySelector(".top-friend-flag");
+  
+  // visual indicator for top friend
+  if(topFriend) {
+    topFriendNode.style.display = "block";
+    topFriendNode.style.fontWeight = "bolder";
+    topFriendNode.style.fontSize = "13px";
+    topFriendNode.style.backgroundColor = "#757083";
+    topFriendNode.style.color = "white";
+    topFriendNode.style.borderRadius = "5px";
+    topFriendNode.style.width = "70px";
+    topFriendNode.style.padding = "3px";
+  }
 
   nameNode.innerHTML = `${name}`;
   titleNode.innerHTML = `${jobTitle} @ ${companyName}`;
   avatarNode.src = avatarSrc;
   avatarNode.setAttribute("aria-label", `${name}`);
+  
 
   if (avatarSrc) {
     const avatarImg = document.createElement("img");
