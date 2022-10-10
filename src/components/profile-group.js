@@ -13,7 +13,7 @@ const activityStates = {
  * @return {Node} generated markup for a card
  */
 const generateCardNode = (data) => {
-  const { name, href, image, activity } = data;
+  const { name, href, image, activity} = data;
   const templateId = "profile-group-results-item-template";
   const resultCardTemplate = document.getElementById(templateId);
   const clone = document.importNode(resultCardTemplate.content, true);
@@ -25,19 +25,19 @@ const generateCardNode = (data) => {
 
   // assign each group a color depending on how active they are
   // changed font color of each group card for better color contrast
-  if (activity == "active") {
+  if (activityStates.active == activity) {
     referenceNode.style.backgroundColor = "#52C1AD";
     referenceNode.style.color = "black";
   }
-  else if (activity == "moderate") {
+  else if (activityStates.moderate == activity) {
     referenceNode.style.backgroundColor = "#58B1C9";
     referenceNode.style.color = "black";
   }
-  else if (activity == "low") {
+  else if (activityStates.low == activity) {
     referenceNode.style.backgroundColor = "#C152A2";
     referenceNode.style.color = "black";
   }
-  else if (activity == "inactive") {
+  else if (activityStates.inactive == activity) {
     referenceNode.style.backgroundColor = "#C4C4C4";
     referenceNode.style.color = "black";
   }
