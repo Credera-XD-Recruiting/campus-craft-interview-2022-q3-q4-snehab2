@@ -13,7 +13,7 @@ const activityStates = {
  * @return {Node} generated markup for a card
  */
 const generateCardNode = (data) => {
-  const { name, href, image, activity } = data;
+  const { name, href, image, activity, favorite } = data;
   const templateId = "profile-group-results-item-template";
   const resultCardTemplate = document.getElementById(templateId);
   const clone = document.importNode(resultCardTemplate.content, true);
@@ -47,6 +47,10 @@ const generateCardNode = (data) => {
   }
 
   titleNode.innerHTML = `${name}`;
+  // highlight which groups are favorited by user
+  if (favorite) {
+    titleNode.style.fontWeight = "bolder";
+  }
   referenceNode.href = href;
   groupImageNode.src = image;
 
